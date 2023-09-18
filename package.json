@@ -1,0 +1,25 @@
+{
+  "name": "env-type",
+  "displayName": ".env.type",
+  "description": "Variables de entorno con tipado estático",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.82.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "envtype",
+      "aliases": ["Typed Environment", "envtype"],
+      "extensions": [".env.type"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "envtype",
+      "scopeName": "source.env.type",
+      "path": "./syntaxes/envtype.tmLanguage.json"
+    }]
+  }
+}

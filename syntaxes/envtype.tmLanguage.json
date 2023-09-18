@@ -1,21 +1,45 @@
 {
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Typed Environment",
+	"name": "DL Typed Environment",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#strings"
 		},
 		{
-			"include": "#strings"
+			"include": "#datatypes"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#variables"
+		},
+
+		{
+			"include": "#uuid"
+		},
+
+		{
+			"include": "#numeric"
+		},
+
+		{
+			"include": "#boolean"
+		},
+
+		{
+			"include": "#email"
+		},
+
+		{
+			"include": "#invalid"
+		},
+
+		{
+			"include": "#operator"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.envtype",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
 		"strings": {
 			"name": "string.quoted.double.envtype",
 			"begin": "\"",
@@ -26,6 +50,64 @@
 					"match": "\\\\."
 				}
 			]
+		},
+
+		"uuid": {
+			"name":"string.unquoted",
+			"match": "=\\s*\\b[a-f0-9]{8}-[0-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\\b\\s*$"
+		},
+
+		"variables": {
+			"name": "variable.language.envtype",
+			"match": "^\\s*[A-Z][A-Z_]+(?=:\\s*(string|integer|float|boolean|uuid|email))",
+			"comment": "Nombre de variable",
+			"captures": {
+				"1": {
+					"name": "variable.language.envtype"
+				},
+
+				"2": {
+					"name": "keyword.operator"
+				}
+			}
+		},
+
+		"numeric": {
+			"name": "constant.numeric",
+			"match": "\\b-?\\d+\\b"
+		},
+
+		"boolean": {
+			"name": "constant.language",
+			"match": "(?<==\\s*)\\b(true|false)\\b\\s*$"
+		},
+
+		"email": {
+			"name": "string.unquoted",
+			"match": "(?<==\\s*)\\b[a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_]+\\.[a-z0-9-]{1,10}\\b\\s*$"
+		},
+
+		"datatypes": {
+			"name": "keyword.operator",
+			"match": ":\\s*(string|integer|float|boolean|email|uuid)\\s*(?=\\=)"
+		},
+
+		"operator": {
+			"name": "constant.numeric",
+			"begin": "^\\s*\\b[A-Z][A-Z_]+:\\B",
+			"end": "datatypes.match"
+		},
+
+		"invalid": {
+			"name": "invalid.illegal",
+			"match": ".",
+			"comment": "Error de sintaxis",
+		
+			"captures": {
+				"0": {
+					"name": "invalid.illegal"
+				}
+			}
 		}
 	},
 	"scopeName": "source.env.type"

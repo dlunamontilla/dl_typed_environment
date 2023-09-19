@@ -1,43 +1,54 @@
 # env-type README
 
-This is the README for your extension "env-type". After writing up a brief description, we recommend including the following sections.
+Cree un archivo con la extensión `.env.type` y seleccione como lenguaje **DL Typed Environment.**
 
-## Features
+## Características
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Te permite definir variables de entorno con tipos estáticos:
 
-For example if there is an image subfolder under your extension project workspace:
+\!\[feature X\]\(images/feature-x.jpeg\)
 
-\!\[feature X\]\(images/feature-x.png\)
+## Requerimientos
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+Solo debes crear un archivo con el nombre `.env.type`.
 
-## Requirements
+## Configuración de la extensión
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Esta extensión no requiere alguna configuración adicional.
 
-## Extension Settings
+## Problemas conocidos
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Cuando defina un tipo estático para correo electrónico, si su correo es inválido, lo va a marcar como inválido, por ejemplo:
 
-For example:
+```envtype
+DL_EMAIL: email = uncorreo-inválido
+```
 
-This extension contributes the following settings:
+Sin embargo, puede marcar como válido un correo que tenga varios puntos seguidos, por ejemplo:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+```envtype
+DL_EMAIL: email = dlunam...ontilla@gmail.com
+```
 
-## Known Issues
+Sin embargo, el intérprete va a marcar como inválido este correo `dlunam...ontilla@gmail.com`, a menos que lo defina así:
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+```envtype
+DL_EMAIL: email = dlunam.ontilla@gmail.com
+```
 
-## Release Notes
+Porque un correo válido no puede tener más de 1 caracter especial.
 
-Users appreciate release notes as you update your extension.
+El intérprete funciona correctamente. La única observación indicada acá es que si pone más de un caracter especial permitidos en los correos electrónicos, lo va a marcar como un correo válido en el resaltado de sintaxis, mientras que el intérprete no.
+
+## Notas de la versión
+
+Este es el primer lanzamiento.
+
+> Si notas algún problema, por favor, notifíquelo a `davidlunamontilla@gmail.com`.
 
 ### 1.0.0
 
-Initial release of ...
+Lanzamiento inicial.
 
 ### 1.0.1
 
@@ -48,14 +59,6 @@ Fixed issue #.
 Added features X, Y, and Z.
 
 ---
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
 
 ## For more information
 

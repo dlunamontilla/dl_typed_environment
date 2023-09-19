@@ -1,6 +1,6 @@
 {
   "name": "env-type",
-  "displayName": ".env.type",
+  "displayName": "envtype",
   "description": "Variables de entorno con tipado estático",
   "version": "0.0.1",
   "engines": {
@@ -12,7 +12,7 @@
   "contributes": {
     "languages": [{
       "id": "envtype",
-      "aliases": ["Typed Environment", "envtype"],
+      "aliases": ["DL Typed Environment", "envtype"],
       "extensions": [".env.type"],
       "configuration": "./language-configuration.json"
     }],

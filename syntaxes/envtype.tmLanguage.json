@@ -14,100 +14,214 @@
 		{
 			"include": "#variables"
 		},
-
 		{
 			"include": "#uuid"
 		},
-
 		{
 			"include": "#numeric"
 		},
-
+		{
+			"include": "#integer"
+		},
+		{
+			"include": "#float"
+		},
 		{
 			"include": "#boolean"
 		},
-
 		{
 			"include": "#email"
 		},
-
 		{
 			"include": "#invalid"
 		},
-
 		{
 			"include": "#operator"
 		}
 	],
 	"repository": {
+		"boolean": {
+			"match": "(:\\s*boolean\\s*=\\s*)(true|false)\\s*$",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				},
+				"2": {
+					"name": "constant.numeric"
+				}
+			}
+		},
+		"numeric": {
+			"match": "(:\\s*numeric\\s*=\\s*)(-{0,1}[0-9]+\\.{0,1}[0-9]*)\\s*$",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				},
+				"2": {
+					"name": "constant.numeric"
+				}
+			}
+		},
+		"integer": {
+			"match": "(:\\s*integer\\s*=\\s*)(-{0,1}[0-9]+)\\s*$",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				},
+				"2": {
+					"name": "constant.numeric"
+				}
+			}
+		},
+		"float": {
+			"match": "(:\\s*float\\s*=\\s*)(-{0,1}[0-9]+\\.[0-9]+)\\s*$",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				},
+				"2": {
+					"name": "constant.numeric"
+				}
+			}
+		},
 		"strings": {
-			"name": "string.quoted.double.envtype",
-			"begin": "\"",
-			"end": "\"",
 			"patterns": [
 				{
-					"name": "constant.character.escape.envtype",
-					"match": "\\\\."
+					"match": "(:\\s*string\\s*=\\s*)(\"[\\s\\S]*?\")\\s*$",
+					"captures": {
+						"0": {
+							"name": "keyword.operator"
+						},
+						"2": {
+							"name": "string.quoted.double"
+						}
+					}
+				},
+				{
+					"match": "(:\\s*string\\s*=\\s*)('[\\s\\S]*?')\\s*$",
+					"captures": {
+						"0": {
+							"name": "keyword.operator"
+						},
+						"2": {
+							"name": "string.quoted.double"
+						}
+					}
+				},
+				{
+					"match": "(:\\s*string\\s*=\\s*)(`[\\s\\S]*?`)\\s*$",
+					"captures": {
+						"0": {
+							"name": "keyword.operator"
+						},
+						"2": {
+							"name": "string.quoted.double"
+						}
+					}
 				}
 			]
 		},
-
 		"uuid": {
-			"name":"string.unquoted",
-			"match": "=\\s*\\b[a-f0-9]{8}-[0-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\\b\\s*$"
+			"name": "constant.language",
+			"match": "(:\\s*uuid\\s*=\\s*)(\\b[a-f0-9]{8}-[0-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\\b)\\s*$",
+			"captures": {
+				"0": {
+					"name": "keyword.operator"
+				},
+				"2": {
+					"name": "constant.character"
+				}
+			}
 		},
-
 		"variables": {
-			"name": "variable.language.envtype",
-			"match": "^\\s*[A-Z][A-Z_]+(?=:\\s*(string|integer|float|boolean|uuid|email))",
+			"name": "variable.language",
+			"match": "^\\s*[A-Z][A-Z_]+(?=:\\s*(string|integer|float|numeric|boolean|uuid|email))",
 			"comment": "Nombre de variable",
 			"captures": {
 				"1": {
-					"name": "variable.language.envtype"
+					"name": "variable.language"
 				},
-
 				"2": {
 					"name": "keyword.operator"
 				}
 			}
 		},
-
-		"numeric": {
-			"name": "constant.numeric",
-			"match": "\\b-?\\d+\\b"
-		},
-
-		"boolean": {
-			"name": "constant.language",
-			"match": "(?<==\\s*)\\b(true|false)\\b\\s*$"
-		},
-
 		"email": {
-			"name": "string.unquoted",
-			"match": "(?<==\\s*)\\b[a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_]+\\.[a-z0-9-]{1,10}\\b\\s*$"
-		},
-
-		"datatypes": {
-			"name": "keyword.operator",
-			"match": ":\\s*(string|integer|float|boolean|email|uuid)\\s*(?=\\=)"
-		},
-
-		"operator": {
-			"name": "constant.numeric",
-			"begin": "^\\s*\\b[A-Z][A-Z_]+:\\B",
-			"end": "datatypes.match"
-		},
-
-		"invalid": {
-			"name": "invalid.illegal",
-			"match": ".",
-			"comment": "Error de sintaxis",
-		
+			"name": "constant.language",
+			"match": "(:\\s*email\\s*=\\s*)([a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_]+\\.[a-z0-9-]{1,10}\\b)\\s*$",
 			"captures": {
 				"0": {
-					"name": "invalid.illegal"
+					"name": "keyword.operator",
+					"patterns": [
+						{
+							"name": "invalid.illegal",
+							"match": "(.*)\\.{2,}(.*)"
+						},
+						{
+							"name": "invalid.illegal",
+							"match": "(.*)\\-{2,}(.*)"
+						},
+						{
+							"name": "invalid.illegal",
+							"match": "(.*)\\-+\\.+(.*)"
+						},
+						{
+							"name": "invalid.illegal",
+							"match": "(.*)\\.+\\-+(.*)"
+						},
+						{
+							"name": "constant.character",
+							"match": "([a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_]+\\.[a-z0-9-]{1,10}\\b)\\s*$"
+						}
+					]
 				}
 			}
+		},
+		"operator": {
+			"name": "string.html",
+			"match": "(=|\\+|-|\\*|<|>)"
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "//(.*)|#(.*)"
+				},
+				{
+					"name": "comment.block",
+					"begin": "\\/\\*",
+					"end": "\\*\\/"
+				},
+				{
+					"name": "comment.block.documentation",
+					"begin": "\\/\\*{2,}",
+					"end": "\\*\\/"
+				}
+			]
+		},
+		"invalid": {
+			"patterns": [
+				{
+					"name": "invalid.illegal",
+					"match": ".",
+					"comment": "Error de sintaxis",
+					"captures": {
+						"0": {
+							"name": "invalid.illegal"
+						}
+					}
+				},
+				{
+					"name": "invalid.illegal",
+					"match": "\\.{2,}",
+					"comment": "Error de sintaxis",
+					"captures": {
+						"0": {
+							"name": "invalid.illegal"
+						}
+					}
+				}
+			]
 		}
 	},
 	"scopeName": "source.env.type"

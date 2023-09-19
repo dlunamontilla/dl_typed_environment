@@ -8,6 +8,8 @@ Te permite definir variables de entorno con tipos estáticos:
 
 \!\[feature X\]\(images/feature-x.jpeg\)
 
+Puede ver un ejemplo en [YouTube](https://www.youtube.com/watch?v=GE7avMluubM "Ver ejemplo de código")
+
 ## Requerimientos
 
 Solo debes crear un archivo con el nombre `.env.type`.
@@ -18,27 +20,7 @@ Esta extensión no requiere alguna configuración adicional.
 
 ## Problemas conocidos
 
-Cuando defina un tipo estático para correo electrónico, si su correo es inválido, lo va a marcar como inválido, por ejemplo:
-
-```envtype
-DL_EMAIL: email = uncorreo-inválido
-```
-
-Sin embargo, puede marcar como válido un correo que tenga varios puntos seguidos, por ejemplo:
-
-```envtype
-DL_EMAIL: email = dlunam...ontilla@gmail.com
-```
-
-Sin embargo, el intérprete va a marcar como inválido este correo `dlunam...ontilla@gmail.com`, a menos que lo defina así:
-
-```envtype
-DL_EMAIL: email = dlunam.ontilla@gmail.com
-```
-
-Porque un correo válido no puede tener más de 1 caracter especial.
-
-El intérprete funciona correctamente. La única observación indicada acá es que si pone más de un caracter especial permitidos en los correos electrónicos, lo va a marcar como un correo válido en el resaltado de sintaxis, mientras que el intérprete no.
+Por ahora no se ha encontrado problemas.
 
 ## Notas de la versión
 

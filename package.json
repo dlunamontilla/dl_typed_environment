@@ -6,24 +6,36 @@
   "repository": {
     "url": "https://github.com/dlunamontilla/dl_typed_environment"
   },
+  "icon": "images/env.png",
   "publisher": "dlunamontilla",
   "engines": {
-    "vscode": "^1.82.0"
+    "vscode": "^1.82.0",
+    "code-insiders": "^1.82.0",
+    "vscodium": "^1.82.0"
   },
   "categories": [
     "Programming Languages"
   ],
   "contributes": {
-    "languages": [{
-      "id": "envtype",
-      "aliases": ["DL Typed Environment", "envtype"],
-      "extensions": [".env.type"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "envtype",
-      "scopeName": "source.env.type",
-      "path": "./syntaxes/envtype.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "envtype",
+        "aliases": [
+          "DL Typed Environment",
+          "envtype"
+        ],
+        "extensions": [
+          ".env.type"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "envtype",
+        "scopeName": "source.env.type",
+        "path": "./syntaxes/envtype.tmLanguage.json"
+      }
+    ]
   }
 }

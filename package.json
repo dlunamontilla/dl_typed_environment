@@ -3,6 +3,9 @@
   "displayName": "envtype",
   "description": "Variables de entorno con tipado estático",
   "version": "0.0.1",
+  "repository": {
+    "url": "https://github.com/dlunamontilla/dl_typed_environment"
+  },
   "engines": {
     "vscode": "^1.82.0"
   },

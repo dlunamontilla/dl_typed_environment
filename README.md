@@ -6,7 +6,7 @@ Cree un archivo con la extensión `.env.type` y seleccione como lenguaje **DL Ty
 
 Te permite definir variables de entorno con tipos estáticos:
 
-\!\[feature X\]\(images/feature-x.jpeg\)
+\!\[feature X\]\(./images/feature-x.jpeg\)
 
 Puede ver un ejemplo en [YouTube](https://www.youtube.com/watch?v=GE7avMluubM "Ver ejemplo de código")
 

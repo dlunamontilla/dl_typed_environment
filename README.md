@@ -4,7 +4,15 @@ Cree un archivo con la extensión `.env.type` y seleccione como lenguaje **DL Ty
 
 ## Características
 
-Te permite definir variables de entorno con tipos estáticos:
+Te permite definir variables de entorno con tipos estáticos.
+
+Los tipos estáticos que se admiten, al menos, por ahora son son:
+
+```none
+string, email, uuid, numeric, float, integer, boolean
+```
+
+También puede visualizar el ejemplo en la siguiente imagen:
 
 ![Vista de código](https://i.ibb.co/kHqtrs0/feature-x.jpg "Vista previa")
 

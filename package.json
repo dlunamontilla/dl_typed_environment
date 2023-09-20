@@ -1,8 +1,8 @@
 {
-  "name": "env-type",
-  "displayName": "envtype",
+  "name": "envtype",
+  "displayName": "DL Typed Environment",
   "description": "Variables de entorno con tipado estático",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "url": "https://github.com/dlunamontilla/dl_typed_environment"
   },
@@ -25,7 +25,10 @@
           "envtype"
         ],
         "extensions": [
-          ".env.type"
+          ".env.type",
+          ".env.type.example",
+          ".type",
+          ".type.example"
         ],
         "configuration": "./language-configuration.json"
       }
@@ -35,6 +38,14 @@
         "language": "envtype",
         "scopeName": "source.env.type",
         "path": "./syntaxes/envtype.tmLanguage.json"
+      }
+    ],
+
+    "productIconThemes": [
+      {
+        "id": "envtype",
+        "path": "./fileicons/studio-icon.json",
+        "label": "DL Typed Environment"
       }
     ]
   }

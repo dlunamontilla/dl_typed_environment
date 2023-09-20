@@ -2,7 +2,7 @@
   "name": "env-type",
   "displayName": "envtype",
   "description": "Variables de entorno con tipado estático",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "repository": {
     "url": "https://github.com/dlunamontilla/dl_typed_environment"
   },

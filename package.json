@@ -6,7 +6,7 @@
   "repository": {
     "url": "https://github.com/dlunamontilla/dl_typed_environment"
   },
-  "publisher": "David E Luna M <davidlunamontilla@gmail.com>",
+  "publisher": "dlunamontilla",
   "engines": {
     "vscode": "^1.82.0"
   },

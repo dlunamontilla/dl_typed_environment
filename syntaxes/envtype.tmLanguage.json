@@ -44,7 +44,7 @@
 			"match": "(:\\s*boolean\\s*=\\s*)(true|false)\\s*$",
 			"captures": {
 				"0": {
-					"name": "keyword.operator"
+					"name": "entity.name.type"
 				},
 				"2": {
 					"name": "constant.numeric"
@@ -55,7 +55,7 @@
 			"match": "(:\\s*numeric\\s*=\\s*)(-{0,1}[0-9]+\\.{0,1}[0-9]*)\\s*$",
 			"captures": {
 				"0": {
-					"name": "keyword.operator"
+					"name": "entity.name.type"
 				},
 				"2": {
 					"name": "constant.numeric"
@@ -66,7 +66,7 @@
 			"match": "(:\\s*integer\\s*=\\s*)(-{0,1}[0-9]+)\\s*$",
 			"captures": {
 				"0": {
-					"name": "keyword.operator"
+					"name": "entity.name.type"
 				},
 				"2": {
 					"name": "constant.numeric"
@@ -77,7 +77,7 @@
 			"match": "(:\\s*float\\s*=\\s*)(-{0,1}[0-9]+\\.[0-9]+)\\s*$",
 			"captures": {
 				"0": {
-					"name": "keyword.operator"
+					"name": "entity.name.type"
 				},
 				"2": {
 					"name": "constant.numeric"
@@ -90,7 +90,7 @@
 					"match": "(:\\s*string\\s*=\\s*)(\"[\\s\\S]*?\")\\s*$",
 					"captures": {
 						"0": {
-							"name": "keyword.operator"
+							"name": "entity.name.type"
 						},
 						"2": {
 							"name": "string.quoted.double"
@@ -101,7 +101,7 @@
 					"match": "(:\\s*string\\s*=\\s*)('[\\s\\S]*?')\\s*$",
 					"captures": {
 						"0": {
-							"name": "keyword.operator"
+							"name": "entity.name.type"
 						},
 						"2": {
 							"name": "string.quoted.double"
@@ -112,7 +112,7 @@
 					"match": "(:\\s*string\\s*=\\s*)(`[\\s\\S]*?`)\\s*$",
 					"captures": {
 						"0": {
-							"name": "keyword.operator"
+							"name": "entity.name.type"
 						},
 						"2": {
 							"name": "string.quoted.double"
@@ -126,7 +126,7 @@
 			"match": "(:\\s*uuid\\s*=\\s*)(\\b[a-f0-9]{8}-[0-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}\\b)\\s*$",
 			"captures": {
 				"0": {
-					"name": "keyword.operator"
+					"name": "entity.name.type"
 				},
 				"2": {
 					"name": "constant.character"
@@ -134,12 +134,12 @@
 			}
 		},
 		"variables": {
-			"name": "variable.language",
+			"name": "variable.name",
 			"match": "^\\s*[A-Z][A-Z_]+(?=:\\s*(string|integer|float|numeric|boolean|uuid|email))",
 			"comment": "Nombre de variable",
 			"captures": {
 				"1": {
-					"name": "variable.language"
+					"name": "variable.name"
 				},
 				"2": {
 					"name": "keyword.operator"
@@ -148,10 +148,10 @@
 		},
 		"email": {
 			"name": "constant.language",
-			"match": "(:\\s*email\\s*=\\s*)([a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_]+\\.[a-z0-9-]{1,10}\\b)\\s*$",
+			"match": "(:\\s*email\\s*=\\s*)([a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_.]+\\.[a-z][a-z0-9-.]{1,10}\\b)\\s*$",
 			"captures": {
 				"0": {
-					"name": "keyword.operator",
+					"name": "entity.name.type",
 					"patterns": [
 						{
 							"name": "invalid.illegal",
@@ -170,8 +170,8 @@
 							"match": "(.*)\\.+\\-+(.*)"
 						},
 						{
-							"name": "constant.character",
-							"match": "([a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_]+\\.[a-z0-9-]{1,10}\\b)\\s*$"
+							"name": "string.quoted",
+							"match": "[a-z][a-z0-9-_.]{1,63}\\@[a-z][a-z0-9-_.]+\\.[a-z][a-z0-9-.]{1,10}\\s*$"
 						}
 					]
 				}

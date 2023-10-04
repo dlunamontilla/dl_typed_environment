@@ -1,0 +1,17 @@
+{
+  "iconDefinitions": {
+    "envtype": {
+      "iconPath": "./images/env.png"
+    },
+    "envtype.example": {
+      "iconPath": "./images/env.png"
+    }
+  },
+  "fileExtensions": {
+    "env.type": "envtype",
+    "env.type.example": "envtype",
+    "type": "envtype",
+    "type.example": "envtype"
+  },
+  "hidesExplorerArrows": false
+}
